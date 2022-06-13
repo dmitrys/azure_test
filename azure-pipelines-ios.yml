@@ -1,0 +1,24 @@
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+variables:
+  - name: CustomBuildId
+    value: $(Build.BuildId)
+
+
+trigger:
+- master
+
+pool:
+  vmImage: 'macOS-12'
+
+steps:
+
+- bash:
+    let "cbuildid=$(CustomBuildId) + 30000"
+    echo $cbuildid
+    echo "##vso[task.setvariable variable=CustomBuildId]$cbuildid"
+
+- bash:
+    echo $(CustomBuildId)
