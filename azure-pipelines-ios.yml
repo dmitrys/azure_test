@@ -20,6 +20,8 @@ steps:
 
 - script:
     let cbuildid="$(CustomBuildId) + 30000"
+
+- script:
     echo $cbuildid
     #echo "##vso[task.setvariable variable=CustomBuildId]$cbuildid"
 
