@@ -16,9 +16,12 @@ pool:
 steps:
 
 - bash:
-    let "cbuildid=$(CustomBuildId) + 30000"
+    echo $(CustomBuildId)
+
+- bash:
+    let cbuildid=$(CustomBuildId) + 30000
     echo $cbuildid
-    echo "##vso[task.setvariable variable=CustomBuildId]$cbuildid"
+    #echo "##vso[task.setvariable variable=CustomBuildId]$cbuildid"
 
 - bash:
     echo $(CustomBuildId)
