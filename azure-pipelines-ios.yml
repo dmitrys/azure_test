@@ -15,13 +15,13 @@ pool:
 
 steps:
 
-- bash:
+- script:
     echo $(CustomBuildId)
 
-- bash:
+- script:
     let cbuildid="$(CustomBuildId) + 30000"
     echo $cbuildid
     #echo "##vso[task.setvariable variable=CustomBuildId]$cbuildid"
 
-- bash:
+- script:
     echo $(CustomBuildId)
